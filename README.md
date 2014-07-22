@@ -6,7 +6,7 @@ This repository is used to solve the problem proposed at https://www.kaggle.com/
 
 The purpose is to predict survival on the Titanic using machine learning techniques.
 
-Collaboraters:
+Collaborators:
 
 Reynaldo Arteaga
 Nathan King
