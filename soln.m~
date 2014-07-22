@@ -1,0 +1,9 @@
+%write to file
+
+pass_id = cellfun(@str2num,data{1});
+
+fid = fopen('output.csv');
+
+for i = 1:numel(yhat)
+   pass_id 
+end

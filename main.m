@@ -5,7 +5,7 @@
 %first load the data
 
 %filename
-fn = 'train.csv';
+fn = 'test-edited.csv';
 data = import_KC(fn);
 
 
@@ -13,28 +13,32 @@ data = import_KC(fn);
 %    Parch,Ticket,Fare,Cabin,Embarked
 
 %some of the columns are useless
-useless_columns = [1 4 11];
+% useful_columns = [2 3 5 6 7 8 10 12];
+
+%for testing
+useful_columns = [2 4 5 6 7 9 11];
 
 %some of the columns are non numerical
 
 %get number of entries in data
 [m,~] = size(data{1});
 
-data5 = data{5};
-data12 = data{12};
+data5 = data{4};
+data12 = data{11};
 
 
 %%%%%%%
-% Male = 1     Female = 0
+% Male = 1      Female = 0
 % 
-% S = 1   C = 2    Q = 3
-%
+% S = 1    C = 2     Q = 3
+% 
+% 
 %%%%%%%
 
 
 for i = 1:m
     
-    if strcmp(data5{i}, 'Male');
+    if strcmp(data5{i}, 'male');
         data5{i} = '1';
     else
         data5{i} = '0';
@@ -50,8 +54,15 @@ for i = 1:m
 
 end
 
-
-
-
 newdata = data;
-newdata{5} = data5;newdata
+
+newdata{4} = data5;newdata{11} = data12;
+newdata = newdata(useful_columns);
+
+M = zeros(m,size(newdata,2));
+for i = 1:size(newdata,2)
+    
+    derp = cellfun(@str2num,newdata{i});
+    M(:,i) = derp;
+end
+
