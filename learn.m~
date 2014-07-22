@@ -1,0 +1,57 @@
+%machine learning stuff
+
+%% Pre process data
+
+%first load the data
+
+%filename
+fn = 'train.csv';
+data = import_KC(fn);
+
+
+% PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,
+%    Parch,Ticket,Fare,Cabin,Embarked
+
+%some of the columns are useless
+useless_columns = [1 4 11];
+
+%some of the columns are non numerical
+
+%get number of entries in data
+[m,~] = size(data{1});
+
+data5 = data{5};
+data12 = data{12};
+
+
+%%%%%%%
+% Male = 1     Female = 0
+% 
+% S = 1   C = 2    Q = 3
+%
+%%%%%%%
+
+
+for i = 1:m
+    
+    if strcmp(data5{i}, 'Male');
+        data5{i} = '1';
+    else
+        data5{i} = '0';
+    end
+    
+    if strcmp(data12{i},'S')
+        data12{i} = '1';
+    elseif strcmp(data12{i},'C')
+        data12{i} = '2';
+    else
+        data12{i} = '3';
+    end
+
+end
+
+
+
+
+newdata = data;
+newdata{5} = data5;newdata
