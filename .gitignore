@@ -1,0 +1,4 @@
+#ignores specified file extensions
+
+
+.DS_Store
