@@ -83,7 +83,7 @@ cat_ind = [1 2 4 5 7];
 names = {'Status','Sex','Age','Sib','Parch','Fare','Embark'};
 
 %construct classification tree
-T = classregtree(Xtrain,ytrain,...
+T = classregtree(Xtr1ain,ytrain,...
     'categorical',cat_ind,'method','classification','names',names);
 
 %view tree
