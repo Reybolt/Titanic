@@ -1,10 +1,10 @@
 %% Set up machine learning stuffs
 
 %target var is survival
-y = M(:,1);
+y = Survived;%M(:,1);
 
 %features are remaining stuffs
-X = M(:,2:end);
+X = M;%M(:,2:end);
 
 %center data;
 % X = (X - repmat(mean(X),m,1))./repmat(std(X),m,1);
@@ -76,7 +76,7 @@ lambda = 10;
 %% Use classification tree
 
 %indices of categorical variables in X
-cat_ind = [1 2 4 5 7];
+cat_ind = [2 5 6];
 %only non-categorical vars is age and fare (3 and 6)
 
 %labels for variables used
@@ -93,7 +93,7 @@ view(T);
 %% Use random forests
 
 %indices of categorical vairables in X
-cat_ind = [1 2 4 5 7];
+cat_ind = [2 5 6];
 
 %Numbr of trees to make
 tree_num = 50;

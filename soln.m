@@ -1,8 +1,9 @@
 %write to file
 
-pass_id = cellfun(@str2num,data{1});
+pass_id = PassengerId1;%cellfun(@str2num,data{1});
+yhat_double = cellfun(@str2num,yhat);
 
-csvmat = [pass_id abs(yhat)];
+csvmat = [pass_id abs(yhat_double)];
 
 csvwrite('output.csv',csvmat);
 
