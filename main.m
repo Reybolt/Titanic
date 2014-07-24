@@ -5,7 +5,7 @@
 %first load the data
 
 %filename
-fn = 'test-edited.csv';
+fn = 'train-edited.csv';
 data = import_KC(fn);
 
 
@@ -13,18 +13,18 @@ data = import_KC(fn);
 %    Parch,Ticket,Fare,Cabin,Embarked
 
 %some of the columns are useless
-% useful_columns = [2 3 5 6 7 8 10 12];
+useful_columns = [2 3 5 6 7 8 10 12];
 
 %for testing
-useful_columns = [2 4 5 6 7 9 11];
+% useful_columns = [2 4 5 6 7 9 11];
 
 %some of the columns are non numerical
 
 %get number of entries in data
 [m,~] = size(data{1});
 
-data5 = data{4};
-data12 = data{11};
+data5 = data{5};
+data12 = data{12};
 
 
 %%%%%%%
@@ -56,7 +56,7 @@ end
 
 newdata = data;
 
-newdata{4} = data5;newdata{11} = data12;
+newdata{5} = data5;newdata{12} = data12;
 newdata = newdata(useful_columns);
 
 M = zeros(m,size(newdata,2));
